@@ -20,15 +20,9 @@ You should `implement` the Repository class for your concrete implementation.
 
 ```TypeScript
 export abstract class Repository {
-  abstract seedData(): Promise<void>;
   abstract getData(key: string): Promise<any>;
-  abstract putData(type: DocumentType, data: any): Promise<void>;
-  abstract deleteData(
-    type: DocumentType,
-    serviceName: string,
-    version?: string | undefined,
-    test?: string | undefined
-  ): Promise<void>;
+  abstract updateData(key: string, data: any): Promise<void>;
+  abstract deleteData(key: string): Promise<void>;
 }
 ```
 
