@@ -12,7 +12,7 @@
   "author": "Mikael Vesavuori",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf build && tsc",
     "build:watch": "onchange 'src/**/*.ts' -- npm run build",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
