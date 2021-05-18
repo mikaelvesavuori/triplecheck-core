@@ -1,8 +1,12 @@
 # triplecheck-core
 
+![TripleCheck Core](readme/triplecheck-core.png)
+
 ## TripleCheck: Core contracts and utilities
 
-This repo contains core functionality that is shared across `triplecheck` projects, such as the base [repository contract](https://hannesdorfmann.com/android/evolution-of-the-repository-pattern/) to be used by any concrete implementations that handle database actions for TripleCheck. To use a vendor-specific solution there needs to be a compatible Repository built for it.
+_If you are just a regular user of TripleCheck (CLI and/or broker) you won't need to think about this package at all._
+
+This repo contains core functionality that is shared across `triplecheck` projects, such as the base [repository contract](https://hannesdorfmann.com/android/evolution-of-the-repository-pattern/) to be used by any concrete implementations that handle database actions for TripleCheck. To use a vendor-specific solution there needs to be a compatible Repository built for it. [Check this list for currently available repositories written by myself](https://github.com/mikaelvesavuori?tab=repositories&q=triplecheck-repository&type=&language=&sort=).
 
 TripleCheck and its repositories are written in Typescript.
 
@@ -25,15 +29,3 @@ export abstract class Repository {
   abstract deleteData(key: string): Promise<void>;
 }
 ```
-
-## Hygiene and standards
-
-### Open source
-
-Dependencies (direct, production) are checked in CI with [license-compliance](https://www.npmjs.com/package/license-compliance) and [license-compatibility-checker](https://github.com/HansHammel/license-compatibility-checker) for acceptable permissive licenses.
-
-Additionally, it's possible to use [tldrlegal](https://github.com/eladnava/tldrlegal) and [legally](https://github.com/franciscop/legally) to get a fuller picture of any obligations.
-
-### Security
-
-GitHub code scanning, CodeQL analysis and Dependabot is used to improve our security.

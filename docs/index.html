@@ -61,10 +61,12 @@
 				<a href="#triplecheck-core" id="triplecheck-core" style="color: inherit; text-decoration: none;">
 					<h1>triplecheck-core</h1>
 				</a>
+				<p><img src="readme/triplecheck-core.png" alt="TripleCheck Core"></p>
 				<a href="#triplecheck-core-contracts-and-utilities" id="triplecheck-core-contracts-and-utilities" style="color: inherit; text-decoration: none;">
 					<h2>TripleCheck: Core contracts and utilities</h2>
 				</a>
-				<p>This repo contains core functionality that is shared across <code>triplecheck</code> projects, such as the base <a href="https://hannesdorfmann.com/android/evolution-of-the-repository-pattern/">repository contract</a> to be used by any concrete implementations that handle database actions for TripleCheck. To use a vendor-specific solution there needs to be a compatible Repository built for it.</p>
+				<p><em>If you are just a regular user of TripleCheck (CLI and/or broker) you won&#39;t need to think about this package at all.</em></p>
+				<p>This repo contains core functionality that is shared across <code>triplecheck</code> projects, such as the base <a href="https://hannesdorfmann.com/android/evolution-of-the-repository-pattern/">repository contract</a> to be used by any concrete implementations that handle database actions for TripleCheck. To use a vendor-specific solution there needs to be a compatible Repository built for it. <a href="https://github.com/mikaelvesavuori?tab=repositories&amp;q=triplecheck-repository&amp;type=&amp;language=&amp;sort=">Check this list for currently available repositories written by myself</a>.</p>
 				<p>TripleCheck and its repositories are written in Typescript.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
@@ -79,29 +81,11 @@
 				</a>
 				<p>You should <code>implement</code> the Repository class for your concrete implementation.</p>
 				<pre><code class="language-TypeScript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Repository</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">seedData</span><span style="color: #000000">(): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">void</span><span style="color: #000000">&gt;;</span>
 <span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">getData</span><span style="color: #000000">(</span><span style="color: #001080">key</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">any</span><span style="color: #000000">&gt;;</span>
-<span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">putData</span><span style="color: #000000">(</span><span style="color: #001080">type</span><span style="color: #000000">: </span><span style="color: #267F99">DocumentType</span><span style="color: #000000">, </span><span style="color: #001080">data</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">void</span><span style="color: #000000">&gt;;</span>
-<span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">deleteData</span><span style="color: #000000">(</span>
-<span style="color: #000000">    </span><span style="color: #001080">type</span><span style="color: #000000">: </span><span style="color: #267F99">DocumentType</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">serviceName</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">version</span><span style="color: #000000">?: </span><span style="color: #267F99">string</span><span style="color: #000000"> | </span><span style="color: #267F99">undefined</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #001080">test</span><span style="color: #000000">?: </span><span style="color: #267F99">string</span><span style="color: #000000"> | </span><span style="color: #267F99">undefined</span>
-<span style="color: #000000">  ): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">void</span><span style="color: #000000">&gt;;</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">updateData</span><span style="color: #000000">(</span><span style="color: #001080">key</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #001080">data</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">void</span><span style="color: #000000">&gt;;</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">abstract</span><span style="color: #000000"> </span><span style="color: #795E26">deleteData</span><span style="color: #000000">(</span><span style="color: #001080">key</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">void</span><span style="color: #000000">&gt;;</span>
 <span style="color: #000000">}</span>
 </code></pre>
-				<a href="#hygiene-and-standards" id="hygiene-and-standards" style="color: inherit; text-decoration: none;">
-					<h2>Hygiene and standards</h2>
-				</a>
-				<a href="#open-source" id="open-source" style="color: inherit; text-decoration: none;">
-					<h3>Open source</h3>
-				</a>
-				<p>Dependencies (direct, production) are checked in CI with <a href="https://www.npmjs.com/package/license-compliance">license-compliance</a> and <a href="https://github.com/HansHammel/license-compatibility-checker">license-compatibility-checker</a> for acceptable permissive licenses.</p>
-				<p>Additionally, it&#39;s possible to use <a href="https://github.com/eladnava/tldrlegal">tldrlegal</a> and <a href="https://github.com/franciscop/legally">legally</a> to get a fuller picture of any obligations.</p>
-				<a href="#security" id="security" style="color: inherit; text-decoration: none;">
-					<h3>Security</h3>
-				</a>
-				<p>GitHub code scanning, CodeQL analysis and Dependabot is used to improve our security.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

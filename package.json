@@ -1,10 +1,11 @@
 {
   "name": "triplecheck-core",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Core contracts and utilities for TripleCheck.",
   "main": "build/index.js",
   "keywords": [
     "triplecheck",
+    "triplecheck-core",
     "contract-testing",
     "consumer-contracts",
     "pacts"
@@ -22,16 +23,16 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.41",
-    "eslint": "^7.25.0",
-    "eslint-config-prettier": "^8.2.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.3.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
     "license-compatibility-checker": "^0.3.5",
     "license-compliance": "^1.2.1",
     "onchange": "^7.1.0",
-    "ts-jest": "^26.5.5",
+    "ts-jest": "^26.5.6",
     "ts-node": "^9.1.1",
     "tslib": "^2.2.0",
     "typedoc": "^0.20.36",
