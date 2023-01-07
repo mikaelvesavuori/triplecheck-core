@@ -1,3 +1,5 @@
+docs/
+
 # Ensure built files are included
 !build/
 

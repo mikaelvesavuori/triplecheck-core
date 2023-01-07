@@ -1,6 +1,6 @@
 {
   "name": "triplecheck-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core contracts and utilities for TripleCheck.",
   "main": "build/index.js",
   "keywords": [
@@ -18,24 +18,22 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watchAll",
     "licenses": "npx license-compliance --production --allow 'MIT;ISC;BSD-2-Clause;BSD-3-Clause;0BSD;Apache-2.0;Unlicense'",
-    "licenses:checker": "npx license-compatibility-checker",
-    "docs": "npx typedoc src",
+    "docs": "npx typedoc --entryPoints './src' --entryPointStrategy 'expand' --exclude '**/*+(test).ts' --externalPattern '**/node_modules/**/*' --excludeExternals --out 'docs'",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.3.0",
-    "eslint": "^7.26.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^6.0.0",
-    "license-compatibility-checker": "^0.3.5",
-    "license-compliance": "^1.2.1",
-    "onchange": "^7.1.0",
-    "ts-jest": "^26.5.6",
-    "ts-node": "^9.1.1",
-    "tslib": "^2.2.0",
-    "typedoc": "^0.20.36",
-    "typescript": "^4.2.4"
+    "@types/jest": "29",
+    "@types/node": "18",
+    "eslint": "8",
+    "eslint-config-prettier": "8",
+    "eslint-plugin-prettier": "4",
+    "husky": "8",
+    "license-compliance": "1",
+    "onchange": "7",
+    "ts-jest": "29",
+    "ts-node": "10",
+    "tslib": "2",
+    "typedoc": "^0.23.23",
+    "typescript": "4"
   }
 }
